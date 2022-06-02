@@ -23,10 +23,9 @@ def format_as_list(title: str, description: str, /, *, indent: int = 4) -> str:
     """
 
     def create_line(length: int, inverted: bool, /):
-        corners = {True: ["╭", "╯"], False: ["╰", "╮"]}
         length -= 2
-        corner = corners[inverted]
-        return corner[0] + length * "─" + corner[1]
+        corners = ["╭", "╯"] if inverted else ["╰", "╮"]
+        return corners[0] + length * "─" + corners[1]
 
     title_len = len(re.sub(r"\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])", "", title)) + int(bool(indent))
     lines = [f"{title}:"]
@@ -42,6 +41,3 @@ def format_as_list(title: str, description: str, /, *, indent: int = 4) -> str:
     lines.extend(f"{(indent - 1) * ' '}│{line}" for line in description.splitlines())
 
     return "\n".join(lines)
-
-
-print(format_as_list("aaaaaaaaaaa", "Description\nStuff\nEtc", indent=6))
