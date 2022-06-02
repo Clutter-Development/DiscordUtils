@@ -1,5 +1,6 @@
-import discord
 import io
+
+import discord
 
 __all__ = ("TextFile",)
 
@@ -13,6 +14,8 @@ class TextFile(discord.File):
         *,
         spoiler: bool = discord.utils.MISSING,
         description: str | None = None,
-        encoding: str = "utf-8"
+        encoding: str = "utf-8",
     ):
-        super().__init__(io.BytesIO(bytes(text, encoding)), filename, spoiler=spoiler, description=description)
+        super().__init__(
+            io.BytesIO(bytes(text, encoding)), filename, spoiler=spoiler, description=description
+        )

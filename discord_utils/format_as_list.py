@@ -21,11 +21,9 @@ def format_as_list(title: str, description: str, /, *, indent: int = 4) -> str:
            │Stuff
            │Etc
     """
+
     def create_line(length: int, inverted: bool, /):
-        corners = {
-            True: ["╭", "╯"],
-            False: ["╰", "╮"]
-        }
+        corners = {True: ["╭", "╯"], False: ["╰", "╮"]}
         length -= 2
         corner = corners[inverted]
         return corner[0] + length * "─" + corner[1]
@@ -34,7 +32,10 @@ def format_as_list(title: str, description: str, /, *, indent: int = 4) -> str:
     lines = [f"{title}:"]
 
     if title_len > indent:
-        lines.append((indent - 1) * " " + create_line(title_len - indent + int(bool(indent or title_len)), True))
+        lines.append(
+            (indent - 1) * " "
+            + create_line(title_len - indent + int(bool(indent or title_len)), True)
+        )
     elif indent > title_len:
         lines.append((title_len - 1) * " " + create_line(indent - title_len + 1, False))
 
