@@ -13,6 +13,9 @@ if TYPE_CHECKING:
         COLORS: dict[str, int]
 
 
+__all__ = ("QuickEmbed", "QuickEmbedCreator")
+
+
 class QuickEmbed(discord.Embed):
     def __init__(
         self,
