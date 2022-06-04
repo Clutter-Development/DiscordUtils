@@ -30,3 +30,4 @@ __version__ = "1.0.0"
 
 from .format_as_list import *
 from .text_file import *
+from .run_in_executor import run_in_executor
