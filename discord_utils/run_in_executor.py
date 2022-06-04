@@ -26,6 +26,8 @@ def run_in_executor(func: Callable[P, T]) -> Callable[P, Awaitable[T]]:
 
         asyncio.run(main())
     """
+
     async def wrapper(*args: P.args, **kwargs: P.kwargs) -> T:
         return await asyncio.to_thread(func, *args, **kwargs)
+
     return wrapper

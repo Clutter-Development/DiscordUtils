@@ -1,11 +1,12 @@
 # TODO: docs.
-from typing import overload, TYPE_CHECKING, Protocol, TypedDict
+from typing import TYPE_CHECKING, Protocol, TypedDict, overload
 
 import discord
 
 if TYPE_CHECKING:
-    from typing_extensions import Self
     import datetime
+
+    from typing_extensions import Self
 
     class StyleDict(TypedDict):
         EMOJIS: dict[str, str]
@@ -58,7 +59,9 @@ class QuickEmbedCreator:
         ...
 
     @overload
-    def __call__(self, asset_type: str, /, title: str | None = None, description: str | None = None, **kwargs) -> QuickEmbed:
+    def __call__(
+        self, asset_type: str, /, title: str | None = None, description: str | None = None, **kwargs
+    ) -> QuickEmbed:
         ...
 
     def __call__(
