@@ -1,4 +1,6 @@
 # TODO: docs.
+from __future__ import annotations
+
 from typing import TYPE_CHECKING, Protocol, TypedDict, overload
 
 import discord
