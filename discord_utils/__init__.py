@@ -26,7 +26,7 @@ __title__ = "discord_utils"
 __author__ = "Clutter Development"
 __license__ = "MIT"
 __copyright__ = "Copyright (c) 2022-present Clutter Development"
-__version__ = "1.1.0"
+__version__ = "1.1.1"
 
 from .format_as_list import *
 from .quick_embed import *
