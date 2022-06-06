@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name="discord_utils",
     author="Clutter Development",
-    version="1.1.1",
+    version="1.2.0",
     license="MIT",
     description="A collection of good and simple utilities for Discord bots.",
     python_requires=">=3.10",

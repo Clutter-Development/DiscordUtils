@@ -18,8 +18,8 @@ def run_in_executor(func: Callable[P, T]) -> Callable[P, Awaitable[T]]:
 
     Example:
         @run_in_executor
-            def blocking_func():
-            time.sleep(60)
+        def blocking_func():
+            ...
 
         async def main():
             await blocking_func()  # non-blocking now!
