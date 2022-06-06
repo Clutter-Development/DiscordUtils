@@ -10,23 +10,23 @@ if TYPE_CHECKING:
 
     from typing_extensions import Self
 
+
     class StyleDict(TypedDict):
         EMOJIS: dict[str, str]
         COLORS: dict[str, int]
-
 
 __all__ = ("QuickEmbed", "QuickEmbedCreator")
 
 
 class QuickEmbed(discord.Embed):
     def __init__(
-        self,
-        title: str | None = None,
-        description: str | None = None,
-        *,
-        url: str | None = None,
-        timestamp: datetime.datetime | None = None,
-        color: int | discord.Color | None = None,
+            self,
+            title: str | None = None,
+            description: str | None = None,
+            *,
+            url: str | None = None,
+            timestamp: datetime.datetime | None = None,
+            color: int | discord.Color | None = None,
     ):
         super().__init__(
             title=title,
@@ -42,12 +42,12 @@ class QuickEmbed(discord.Embed):
 
 class PartialQuickEmbed(Protocol):
     def __call__(
-        self,
-        title: str | None = None,
-        description: str | None = None,
-        *,
-        url: str | None = None,
-        timestamp: datetime.datetime | None = None,
+            self,
+            title: str | None = None,
+            description: str | None = None,
+            *,
+            url: str | None = None,
+            timestamp: datetime.datetime | None = None,
     ) -> QuickEmbed:
         ...
 
@@ -65,22 +65,22 @@ class QuickEmbedCreator:
 
     @overload
     def __call__(
-        self, asset_type: str, /, title: str | None = None, description: str | None = None, **kwargs
+            self, asset_type: str, /, title: str | None = None, description: str | None = None, **kwargs
     ) -> QuickEmbed:
         ...
 
     def __call__(
-        self,
-        asset_type: str,
-        /,
-        title: str | None = None,
-        description: str | None = None,
-        **kwargs,
+            self,
+            asset_type: str,
+            /,
+            title: str | None = None,
+            description: str | None = None,
+            **kwargs,
     ) -> QuickEmbed | PartialQuickEmbed:
         def inner(
-            title: str | None = title,
-            description: str | None = description,
-            **kwargs_,
+                title: str | None = title,
+                description: str | None = description,
+                **kwargs_,
         ) -> QuickEmbed:
             nonlocal asset_type
             asset_type = asset_type.upper()
