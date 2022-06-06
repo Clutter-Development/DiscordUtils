@@ -27,17 +27,25 @@ def format_as_list(title: str, description: str, /, *, indent: int = 4) -> str:
         corners = ("╭", "╯") if inverted else ("╰", "╮")
         return corners[0] + length * "─" + corners[1]
 
-    title_len = len(re.sub(r"\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])", "", title)) + int(bool(indent))
+    title_len = len(
+        re.sub(r"\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])", "", title)
+    ) + int(bool(indent))
     lines = [f"{title}:"]
 
     if title_len > indent:
         lines.append(
             (indent - 1) * " "
-            + create_line(title_len - indent + int(bool(indent or title_len)), True)
+            + create_line(
+                title_len - indent + int(bool(indent or title_len)), True
+            )
         )
     elif indent > title_len:
-        lines.append((title_len - 1) * " " + create_line(indent - title_len + 1, False))
+        lines.append(
+            (title_len - 1) * " " + create_line(indent - title_len + 1, False)
+        )
 
-    lines.extend(f"{(indent - 1) * ' '}│{line}" for line in description.splitlines())
+    lines.extend(
+        f"{(indent - 1) * ' '}│{line}" for line in description.splitlines()
+    )
 
     return "\n".join(lines)
