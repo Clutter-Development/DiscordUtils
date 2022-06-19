@@ -1,3 +1,3 @@
-# DiscordUtils
+# This project has been moved
 
-A collection of good and simple utilities for Discord bots.
+This project has been moved to the [Clutter `utils` directory](https://github.com/Clutter-Development/Clutter/tree/master/clutter/utils).
